@@ -1,0 +1,37 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source":"/api/user/login",
+        "run": {
+          "serviceId": "backend10",
+          "region": "us-central1"  
+        }
+      },     
+      {
+        "source":"/api/admin/login",
+        "run": {
+          "serviceId": "backend10",
+          "region": "us-central1"  
+        }
+      },
+      {
+        "source":"/api/**",
+        "run": {
+          "serviceId": "backend10",
+          "region": "us-central1"  
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
